@@ -33,7 +33,7 @@ public class SessionService : ISessionService
     public async Task<List<Session>> GetSessionsAsync()
     {
         return await _dbContext.Sessions
-            .Where(s => s.User.Status == UserStatus.Active // Предполагаем, что "Active" является индикатором активности
+            .Where(s => s.User.Status == UserStatus.Active 
                         && s.EndedAtUTC < new DateTime(2025, 1, 1)) // Сеансы, завершенные до 2025 года
             .ToListAsync(); // Асинхронное получение списка
     }
